@@ -3,7 +3,7 @@ context.terminal = ["tmux", "split", "-h"]
 context.arch = "amd64"
 
 # log helper
-slog = lambda k, v: log.info(f"{k} = {v}")
+slog = lambda k, v: log.info(f"{{k}} = {{v}}")
 
 # pwntools send/recv helper
 _b = lambda x: x if isinstance(x, bytes) else str(x).encode()
