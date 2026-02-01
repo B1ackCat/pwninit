@@ -52,8 +52,8 @@ fn make_bindings(opts: &Opts) -> String {
                 .as_ref()
                 .or(opts.bin.as_ref()),
         ),
-        bind_line(&opts.template_libc_name, opts.libc.as_ref()),
-        bind_line(&opts.template_ld_name, opts.ld.as_ref()),
+        //bind_line(&opts.template_libc_name, opts.libc.as_ref()),
+        //bind_line(&opts.template_ld_name, opts.ld.as_ref()),
     ]
     .iter()
     .filter_map(|x| x.as_ref())
@@ -91,9 +91,9 @@ fn make_stub(opts: &Opts) -> Result<String> {
 /// specified directory, unless a `solve.py` already exists
 pub fn write_stub(opts: &Opts) -> Result<()> {
     let stub = make_stub(opts)?;
-    let path = Path::new("solve.py");
+    let path = Path::new("ex.py");
     if !path.exists() {
-        println!("{}", "writing solve.py stub".cyan().bold());
+        println!("{}", "writing ex.py stub".cyan().bold());
         fs::write(path, stub).context(WriteSnafu)?;
         set_exec(path).context(SetExecSnafu)?;
     }
