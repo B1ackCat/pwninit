@@ -13,7 +13,7 @@ def start(e):
     log.info(f"Running local...")
     return process(e.path)
 
-lg = lambda k, v: log.info(f"{{k}} = {{v}}")
+lg = lambda k, v: log.info(f"{{k}} @ {{v}}")
 _b  = lambda x: x if isinstance(x, bytes) else str(x).encode()
 s   = lambda x: p.send(_b(x))
 sl  = lambda x: p.sendline(_b(x))
